@@ -12,20 +12,20 @@ def is_palindrome(text: str) -> bool:
         bool: True jeśli tekst jest palindromem, False jeśli nie.
     """
     # 1. Zamieniamy wszystkie litery na małe (np. "Kajak" -> "kajak")
-    normalized_text = text.lower()
+    lowered = text.lower()
     
     # 2. Usunięcie znaków diakrytycznych (ą -> a, ł -> l, ż -> z itp.)
-    normalized_text = ''.join(
+    without_diacritics = ''.join(
         c for c in unicodedata.normalize('NFD', text)
         if unicodedata.category(c) != 'Mn'
     )
     
     # 3. Usunięcie wszystkiego, co nie jest literą ani cyfrą
     #    (spacje, przecinki, kropki itd.)
-    normalized_text = re.sub(r'[^a-z0-9]', '', text)
+    cleaned = re.sub(r'[^a-z0-9]', '', text)
 
     # 4. Sprawdzamy, czy tekst jest równy swojemu odbiciu (rewersowi)
-    return normalized_text == normalized_text[::-1]
+    return cleaned == cleaned[::-1]
 
 
 # Przykłady użycia
