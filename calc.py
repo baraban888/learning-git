@@ -1,12 +1,7 @@
 import logging
 
-# konfiguracja logowania
 logging.basicConfig(level=logging.INFO, format="%(message)s")
 
-print("Wybierz działanie: 1 - Dodawanie, 2 - Odejmowanie")
-choice = input("Twój wybór: ")
-
-# Funkcja pomocnicza: pyta o liczbę dopóki użytkownik nie poda poprawnej
 def get_number(prompt):
     while True:
         value = input(prompt)
@@ -15,18 +10,24 @@ def get_number(prompt):
         except ValueError:
             logging.error(f"'{value}' to nie jest liczba! Spróbuj ponownie.")
 
-a = get_number("Podaj składnik 1: ")
-b = get_number("Podaj składnik 2: ")
+def main():
+    print("Wybierz działanie: 1 = Dodawanie, 2 = Odejmowanie")
+    choice = input("Twój wybór: ")
 
-if choice == "1":
-    result = a + b
-    logging.info(f"Dodaję {a} + {b}")
-elif choice == "2":
-    result = a - b
-    logging.info(f"Odejmuję {a} - {b}")
-else:
-    logging.error("Niepoprawny wybór działania!")
-    result = None
+    a = get_number("Podaj składnik 1: ")
+    b = get_number("Podaj składnik 2: ")
 
-if result is not None:
+    if choice == "1":
+        result = a + b
+        logging.info(f"Dodaję {a} + {b}")
+    elif choice == "2":
+        result = a - b
+        logging.info(f"Odejmuję {a} - {b}")
+    else:
+        logging.error("Niepoprawny wybór działania!")
+        return
+
     print("Wynik to:", result)
+
+if __name__ == "__main__":
+    main()
