@@ -1,15 +1,15 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to right, #f0f4f7, #dfe9f3);
+    background: linear-gradient(to right, #ffe6e6, #fff5f5);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
 header {
-    background-color: #333;
+    background: linear-gradient(90deg, #990000, #cc0000);
     padding: 10px 20px;
     text-align: center;
 }
@@ -18,9 +18,10 @@ header a {
     color: white;
     text-decoration: none;
     margin: 0 15px;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 18px;
     transition: color 0.3s ease;
+    letter-spacing: 0.5px;
 }
 
 header a:hover {
@@ -33,37 +34,43 @@ main {
 }
 
 h1 {
-    background-color: #444;
+    background: linear-gradient(90deg, #b30000, #e60000);
     color: white;
     padding: 12px;
     border-radius: 8px;
     text-align: center;
     margin: 20px auto;
     max-width: 600px;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 
 h2 {
-    color: darkblue;
+    color: #990000;
     margin-top: 20px;
     text-align: center;
+    font-weight: 600;
 }
 
 img {
     width: 200px;
     border-radius: 10px;
     margin: 15px auto;
-    border: 4px solid #444;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+    border: 4px solid #cc0000;
+    box-shadow: 0px 4px 12px rgba(153, 0, 0, 0.5);
     display: block;
+    transition: transform .2s ease, box-shadow .2s ease;
 }
 
 p, ul {
     text-align: center;
     font-size: 18px;
+    line-height: 1.6;
 }
 
 strong {
-    color: darkred;
+    color: #b30000;
+    font-weight: 600;
 }
 
 form {
@@ -83,8 +90,9 @@ textarea {
     border-radius: 6px;
     border: 1px solid #aaa;
     padding: 8px;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', Arial, sans-serif;
     resize: vertical;
+    font-size: 16px;
 }
 
 button {
@@ -92,25 +100,31 @@ button {
     padding: 10px 20px;
     border: none;
     border-radius: 6px;
-    background-color: darkblue;
+    background: linear-gradient(90deg, #990000, #cc0000);
     color: white;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 16px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform .2s ease;
+    letter-spacing: 0.5px;
 }
 
 button:hover {
-    background-color: navy;
+    background: linear-gradient(90deg, #cc0000, #ff0000);
+}
+
+button:active {
+    transform: translateY(1px);
 }
 
 i {
     margin-right: 6px;
-    color: darkblue;
+    color: #b30000;
 }
 
 footer {
-    background-color: #333;
-    color: #ddd;
+    background: linear-gradient(90deg, #990000, #cc0000);
+    color: #fff;
     text-align: center;
     padding: 15px;
     font-size: 14px;
@@ -121,7 +135,7 @@ footer .social {
 }
 
 footer .social a {
-    color: #ddd;
+    color: #fff;
     margin: 0 10px;
     font-size: 20px;
     transition: color 0.3s ease;
@@ -130,3 +144,32 @@ footer .social a {
 footer .social a:hover {
     color: #ffcc00;
 }
+
+/* --- Анимации --- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in { animation: fadeIn 600ms ease-out both; }
+.slide-up { animation: slideUp 700ms ease-out both; }
+
+.d100 { animation-delay: 100ms; }
+.d200 { animation-delay: 200ms; }
+.d300 { animation-delay: 300ms; }
+.d400 { animation-delay: 400ms; }
+
+img:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(153,0,0,.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
