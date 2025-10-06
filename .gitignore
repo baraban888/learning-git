@@ -1,10 +1,11 @@
-# виртуальное окружение
-venv/
-
-# кеши Python
+# Python
 __pycache__/
 *.pyc
 
-# системные файлы
+# venvs
+venv/
+book/venv/
+
+# OS
 .DS_Store
 Thumbs.db
